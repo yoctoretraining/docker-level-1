@@ -1,0 +1,27 @@
+{
+  "name": "node-ping-pong",
+  "version": "1.0.0",
+  "description": "node ping pong project for yocto training",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-ping": "APP_MODE=ping node index.js",
+    "start-pong": "APP_MODE=pong node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoctoretraining/node-ping-pong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoctoretraining/node-ping-pong/issues"
+  },
+  "homepage": "https://github.com/yoctoretraining/node-ping-pong#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "express": "^4.14.0",
+    "moment": "^2.14.1",
+    "request": "^2.73.0"
+  }
+}
