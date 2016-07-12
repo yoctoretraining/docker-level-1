@@ -18,6 +18,8 @@ ENV APPLICATION_VERSION 1.0.0
 
 # Copy entrypoint
 COPY entrypoint.sh .
+# Define correct rights
+RUN chmod +x entrypoint.sh
 
 # Define default entry point to start app (out bash script to process specific pm2 scripts on app)
 ENTRYPOINT [ "/bin/bash", "entrypoint.sh" ]
