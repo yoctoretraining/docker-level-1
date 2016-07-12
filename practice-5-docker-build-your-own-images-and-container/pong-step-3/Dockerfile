@@ -41,5 +41,8 @@ RUN chmod +x pong.sh
 # run npm install
 RUN npm install --production
 
+# expose port
+EXPOSE 3000
+
 # Define default entry point to start app (out bash script to process specific pm2 scripts on app)
 ENTRYPOINT [ "/bin/bash", "pong.sh" ]
