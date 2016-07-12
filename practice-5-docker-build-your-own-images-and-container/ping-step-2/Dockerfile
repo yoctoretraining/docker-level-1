@@ -1,4 +1,4 @@
-# Step One of practice 5
+# Step Two of practice 5
 
 # From node 4.4.5
 FROM node:4.4.5
@@ -27,7 +27,7 @@ echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN mkdir -p ${WORKING_DIRECTORY}
 
 # Copy entrypoint
-COPY extract/* ${WORKING_DIRECTORY}
+COPY extract ${WORKING_DIRECTORY}
 
 # Set correct rights
 RUN chown -R ${DOCKER_USER}:${DOCKER_USER} ${WORKING_DIRECTORY}
@@ -37,6 +37,9 @@ WORKDIR ${WORKING_DIRECTORY}
 
 # Define correct rights
 RUN chmod +x ping.sh
+
+# run npm install
+RUN npm install --production
 
 # Define default entry point to start app (out bash script to process specific pm2 scripts on app)
 ENTRYPOINT [ "/bin/bash", "ping.sh" ]

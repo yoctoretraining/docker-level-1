@@ -27,7 +27,7 @@ echo -e "${prt} ENV WORKING_DIRECTORY /var/www/\${APPLICATION_NAME}"
 echo -e "${prt} RUN mkdir -p \${WORKING_DIRECTORY}"
 
 task "2.3" "Demander au formateur les sources du projet « ping-pong », les extraire dans un dossier « extract » et les copier dans /var/www/ping"
-echo -e "${prt} COPY extract/* \${WORKING_DIRECTORY}"
+echo -e "${prt} COPY extract \${WORKING_DIRECTORY}"
 
 task "2.4" "Attribué les droits de propriété et de groupe de l’utilisateur créer au dossier /var/www/ping"
 echo -e "${prt} RUN chown -R \${DOCKER_USER}:\${DOCKER_USER} \${WORKING_DIRECTORY}"
@@ -39,6 +39,9 @@ task "2.6" "Changer le point d’entrer pour exécuter le fichier « ping.sh �
 echo -e "${prt} RUN chmod +x ping.sh"
 echo -e "${prt} ENTRYPOINT [ \"/bin/bash\", \"ping.sh\" ]"
 
-task "2.7" "Lancer l’image avec le nom « ping-v1.0.0 » et afficher les logs du container"
+task "2.7" "Rajouter l’execution de la commande suivante : « npm install --production »"
+echo -e "${prt} RUN npm install --production"
+
+task "2.8" "Lancer l’image avec le nom « ping-v1.0.0 » et afficher les logs du container"
 echo -e "${prt} docker run --name ping-v1.0.0 -d ping:1.0.0"
 echo -e "${prt} docker logs -f ping-v1.0.0"
